@@ -38,7 +38,15 @@ INTERNAL_IPS = (
 
 
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    # 'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': os.getenv('db_engine'),
+        'NAME': os.getenv('db_name'),
+        'HOST': os.getenv('db_host'),
+        'USER': os.getenv('db_user'),
+        'PASSWORD': os.getenv('db_password'),
+        'PORT': os.getenv('db_port'),     
+    },
 }
 
 
@@ -136,3 +144,5 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+AUTH_USER_MODEL = 'users.User'
