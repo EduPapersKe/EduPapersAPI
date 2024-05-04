@@ -67,10 +67,11 @@ class LoginView(APIView):
     @action(methods=['POST'], detail=False)
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
-        username = serializer.validated_data['username']
-        password = serializer.validated_data['password']
         
         if serializer.is_valid():
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
+            
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 if user.is_verified == True:
