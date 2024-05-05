@@ -2,7 +2,7 @@
 EduPapersAPI is a Django-based RESTful API which functions as the project's backend infrastructure.
 
 
-There are two main ways to contribute to this project:
+There are two main ways to contribute to this project:<br>
 1: **Suggest features or functionality in the discussions:**
  - Navigate to the discussions tab at the organization level by following [this link](https://github.com/orgs/EduPapersKe/discussions).
  - In the discussions tab, choose the category of suggestion between "New feature" and "Feature implementation."
@@ -19,7 +19,7 @@ There are two main ways to contribute to this project:
 Running the project locally
 
 #### Clone the Repository
-1: Open your command prompt or terminal.
+1: Open your command prompt or terminal.<br>
 2: Navigate to your preferred directory and clone the repository using the following command:
   ```Bash
   git clone https://github.com/EduPapersKe/EduPapersAPI.git
