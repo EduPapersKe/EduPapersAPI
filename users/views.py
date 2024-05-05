@@ -74,12 +74,12 @@ class LoginView(APIView):
             
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                if user.is_verified == True:
+                if user.is_verified is True:
                     login(request, user)
                     refresh = RefreshToken.for_user(user)
                     token = str(refresh.access_token)
                     return Response({'token': token, 'user': user.id}, status=status.HTTP_200_OK)
-                elif user.is_verified == False:
+                else:
                     return Response({'error': 'Your account needs to be verified to log in.'}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
