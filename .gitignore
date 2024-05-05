@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+#local action runners
+actions-runner/
 
 #app migrations
 api/migrations/
