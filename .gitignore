@@ -6,6 +6,16 @@ __pycache__/
 # C extensions
 *.so
 
+
+#app migrations
+api/migrations/
+users/migrations/
+
+#pycache files
+app/__pycache__/
+users/__pycache__/
+
+
 # Distribution / packaging
 .Python
 build/
