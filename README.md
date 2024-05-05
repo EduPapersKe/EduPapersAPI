@@ -9,7 +9,7 @@ There are two main ways to contribute to this project:<br>
  - Create a discussion by tagging any of the organization administrators followed by your suggestion.
 
 2: **Contribute by writing code:**
- - Fork and/or clone the repository, make changes, create a branch for each change, and open a pull request targeting the staging branch. Optionally, you can request a review on your commits from an admin of your choice when creating a pull request.
+ - Fork and/or clone the repository, make changes, create a branch for each change, and open a pull request targeting the development branch. Optionally, you can request a review on your commits from an admin of your choice when creating a pull request.
  - Your changes will be reviewed and the necessary steps taken.
  - Please note that changes made from unapproved suggestions will not be approved. This is to avoid over-complicating things as well as maintain consistency and prevent feature conflicts.
  - Before contributing to this project, make sure you understand how it works.
