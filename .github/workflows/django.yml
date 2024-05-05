@@ -25,6 +25,18 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Run Django server
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+        db_engine: ${{ secrets.db_engine}}
+        db_name: ${{ secrets.db_name}}
+        db_host: ${{ secrets.db_host}}
+        db_user: ${{ secrets.db_user}}
+        db_password: ${{ secrets.db_password}}
+        db_port: ${{ secrets.db_port}}
+        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS}}
+        CSRF_TRUSTED_ORIGINS: ${{ secrets.CSRF_TRUSTED_ORIGINS}}
     - name: Run Tests
       run: |
         python manage.py test
