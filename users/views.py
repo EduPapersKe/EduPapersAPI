@@ -74,7 +74,7 @@ class LoginView(APIView):
             
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                if user.is_verified == True:
+                if user.is_verified is True:
                     login(request, user)
                     refresh = RefreshToken.for_user(user)
                     token = str(refresh.access_token)
