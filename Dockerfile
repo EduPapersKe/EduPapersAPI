@@ -1,12 +1,12 @@
 FROM python:3.12-alpine
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    pkg-config \
-    build-essential \
+RUN apk update && \
+    apk add --no-cache \
+    pkgconfig \
+    build-base \
     gcc \
-    libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
+    postgresql-dev && \
+    rm -rf /var/cache/apk/*
 
 WORKDIR /
 
