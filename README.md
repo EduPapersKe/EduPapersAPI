@@ -75,3 +75,4 @@ Running the project locally
   ```
 
 ##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
+
