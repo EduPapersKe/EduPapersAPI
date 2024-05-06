@@ -16,7 +16,6 @@ There are two main ways to contribute to this project:<br>
   
 
 ### How to?
-
 [Take me to the documentation](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).<br>
 
 Running the project locally
@@ -75,5 +74,5 @@ Running the project locally
    python manage.py runserver
   ```
 
-##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
 
+##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
