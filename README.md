@@ -16,6 +16,8 @@ There are two main ways to contribute to this project:<br>
   
 
 ### How to?
+[Take me to the documentation](https://github.com/EduPapersKe/EduPapersAPI/blob/master/contributing.md).<br>
+
 Running the project locally
 
 #### Clone the Repository
@@ -71,3 +73,5 @@ Running the project locally
   ```Bash
    python manage.py runserver
   ```
+
+##### With that out of the way, you can proceed to the [docs](https://github.com/EduPapersKe/EduPapersAPI/blob/master/contributing.md).
