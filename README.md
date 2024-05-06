@@ -74,5 +74,5 @@ Running the project locally
    python manage.py runserver
   ```
 
-
 ##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
+
