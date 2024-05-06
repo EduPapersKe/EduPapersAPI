@@ -16,7 +16,11 @@ There are two main ways to contribute to this project:<br>
   
 
 ### How to?
+<<<<<<< HEAD
 [Take me to the documentation](https://github.com/EduPapersKe/EduPapersAPI/blob/master/contributing.md).<br>
+=======
+[Take me to the documentation](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).<br>
+>>>>>>> bafeca7fa5166c2fd66f8ccd6570e5dd1aa17f20
 
 Running the project locally
 
@@ -74,4 +78,9 @@ Running the project locally
    python manage.py runserver
   ```
 
+<<<<<<< HEAD
 ##### With that out of the way, you can proceed to the [docs](https://github.com/EduPapersKe/EduPapersAPI/blob/master/contributing.md).
+=======
+
+##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
+>>>>>>> bafeca7fa5166c2fd66f8ccd6570e5dd1aa17f20
