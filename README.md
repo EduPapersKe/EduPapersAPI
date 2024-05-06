@@ -16,6 +16,7 @@ There are two main ways to contribute to this project:<br>
   
 
 ### How to?
+
 [Take me to the documentation](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).<br>
 
 Running the project locally
@@ -75,3 +76,4 @@ Running the project locally
   ```
 
 ##### With that out of the way, you can proceed to the [docs](https://www.postman.com/mwangi-brian/workspace/edupaperske/overview).
+
