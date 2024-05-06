@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    ports:
+      - '${PORT}:8000'
+  redis:
+    image: 'redis:slim'
