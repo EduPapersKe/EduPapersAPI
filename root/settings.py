@@ -36,18 +36,20 @@ INTERNAL_IPS = (
 )
 
 
-
 DATABASES = {
-    # 'default': dj_database_url.parse(env('DATABASE_URL'))
-    'default': {
-        'ENGINE': os.getenv('db_engine'),
-        'NAME': os.getenv('db_name'),
-        'HOST': os.getenv('db_host'),
-        'USER': os.getenv('db_user'),
-        'PASSWORD': os.getenv('db_password'),
-        'PORT': os.getenv('db_port'),     
-    },
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('db_engine'),
+#         'NAME': os.getenv('db_name'),
+#         'HOST': os.getenv('db_host'),
+#         'USER': os.getenv('db_user'),
+#         'PASSWORD': os.getenv('db_password'),
+#         'PORT': os.getenv('db_port'),     
+#     },
+# }
 
 
 # Application definition
