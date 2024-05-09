@@ -8,12 +8,23 @@ def resource_path(instance, filename):
     return f"resources/{instance.id}/{filename}" # Generate the upload path for resources
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    
+    class Meta:
+        verbose_name_plural = 'Categories'
+        
+    def __str__(self):
+        return f"{self.name}"
+    
+    
 class Tag(models.Model):
     """
     For a list of the tags in the database, refer to https://github.com/EduPapersKe/EduPapersAPI/blob/master/tags.txt
     """
     id = models.AutoField(primary_key=True, unique=True, editable=False)
     tag_name = models.CharField(max_length=20, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     
     def save(self, *args, **kwargs):
         self.tag_name = self.tag_name.lower()
