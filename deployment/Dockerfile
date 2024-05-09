@@ -20,6 +20,12 @@ WORKDIR /app
 
 COPY --from=builder /app/ ./  
 
+COPY deployment/scripts /app/deployment/scripts
+
+RUN chmod -R +x /app/deployment/scripts/*
+
+COPY app/ .  
+
 EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
