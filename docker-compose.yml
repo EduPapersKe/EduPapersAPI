@@ -1,7 +1,43 @@
+version: '3.9'
+
 services:
-  web:
-    build: .
+  backend:
+    container_name: "${APP_NAME}"
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+      args:
+        - APP_NAME=${APP_NAME}
+        - APP_HOST=${APP_HOST}
+        - APP_PORT=${APP_PORT}
+    volumes:
+      - ./src:/usr/src/app/
+      - ./deployment/scripts:/app/deployment/scripts/
+    env_file: .env
     ports:
-      - '${PORT}:8000'
-  redis:
-    image: 'redis:slim'
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: [ "/bin/sh", "/app/deployment/scripts/backend/start.sh" ]
+
+  db:
+    image: postgres:15.2-alpine
+    container_name: "${APP_NAME}-db"
+    hostname: "${POSTGRES_HOST:-db}"
+    volumes:
+      - postgres_data_dir:/var/lib/postgresql/data/
+    env_file: .env
+    expose:
+      - "${POSTGRES_PORT:-5432}"
+    shm_size: 1g
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+
+volumes:
+  postgres_data_dir:
