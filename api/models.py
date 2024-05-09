@@ -38,3 +38,14 @@ class Resource(models.Model):
     
     def __str__(self):
         return f"{self.title}"
+    
+    
+class Comment(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    text = models.CharField(max_length=100, null=True, blank=False)
+    date_created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.text}"
