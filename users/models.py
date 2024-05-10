@@ -1,4 +1,5 @@
 import uuid
+from rest_framework.authtoken.models import Token
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
@@ -76,7 +77,9 @@ class Developer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='developers_created')
     
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):#ensures the uuid is populated before the model is saved
+        if not self.id:
+            self.id = uuid.uuid4()
         self.email = self.email.lower()
         super().save(*args, **kwargs)
     
@@ -92,5 +95,11 @@ class APIKey(models.Model):
     api_key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     
+    def save(self, *args, **kwargs):#ensures the uuid is populated before the model is saved
+        if not self.api_key:
+            token=Token.objects.create(user=self.owner)
+            self.api_key=token.key
+        super().save(*args, **kwargs)
+        
     def __str__(self):
-        return f"{self.owner.email}"
+        return f"{self.owner.email} ,,,,,,,,,,,,Devkey = {self.api_key}"
