@@ -57,6 +57,20 @@ class Comment(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     text = models.CharField(max_length=100, null=True, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
+
+    @staticmethod
+    def can_comment(request,resource):
+        """
+        this func helps to ensure that a user can only comment on a single resource only Once. this prevents
+        the comment section from becomming a kind of chatroom where a user keep sending messages on one resource.
+        additionally this feature prevents a potential Dos attack where user might flood the comment section with messages 
+        slowing down the server.its not nessesary but can be called **Comment.can_comment()**if needed to limit comments per user.
+        """
+        comments = Comment.objects.filter(resource=resource,author=request.user)
+        if len(comments )< 1 :
+            return True
+        elif len(comments)>1:
+            return False
     
     def __str__(self):
         return f"{self.text}"
