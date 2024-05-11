@@ -55,7 +55,7 @@ class Resource(models.Model):
     file_format = models.CharField(max_length=7, null=True) # PDF, DOCX, xlsx, CSV, ODS, ZIP, TXT, EPUB, MOBI, AZW only
     
     def __str__(self):
-        return f"{self.title}"
+        return self.title + " "+ self.publisher 
     
     
 class Comment(models.Model):
@@ -78,6 +78,3 @@ class Comment(models.Model):
             return True
         elif len(comments)>1:
             return False
-    
-    def __str__(self):
-        return self.title + " "+ self.publisher 
