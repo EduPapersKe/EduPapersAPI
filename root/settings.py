@@ -36,7 +36,6 @@ INTERNAL_IPS = (
 )
 
 
-
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL'))
     # 'default': {

@@ -20,6 +20,7 @@ users/migrations/__init__.py
 app/__pycache__/
 users/__pycache__/
 
+resources/
 
 # Distribution / packaging
 .Python
