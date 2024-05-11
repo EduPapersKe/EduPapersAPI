@@ -17,10 +17,10 @@ class Resource(models.Model):
     """
     # tags = models.ManyToManyField('Tag')
     """
-    In this field, we will only allow these file formats: PDF, DOCX, xlsx, CSV, ODS, ZIP, TXT,
+    In this field, we will only allow these file formats: PDF, DOCX, xlsx, CSV, ODS, ZIP,TXT,
     EPUB, MOBI, AZW(E-books)
     """
     file_format = models.CharField(max_length=7, null=True)
     
     def __str__(self):
-        return f"{self.title}"
+        return self.title + " "+ self.publisher 
