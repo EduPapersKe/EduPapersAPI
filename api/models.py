@@ -42,6 +42,13 @@ class Resource(models.Model):
     file = models.FileField(upload_to=resource_path, null=True, blank=False)
     file_size = models.IntegerField(null=True)
     """
+    Here comes the tags related to a resource. A resource will have multiple tags.
+    A tags will  be in multiple resources as well.
+    """
+    # tags = models.ManyToManyField('Tag')
+    """
+    In this field, we will only allow these file formats: PDF, DOCX, xlsx, CSV, ODS, ZIP,TXT,
+    EPUB, MOBI, AZW(E-books)
     The tags related to a resource. A resource can have multiple tags or none.
     """
     tags = models.ManyToManyField(Tag, blank=True)
@@ -73,4 +80,4 @@ class Comment(models.Model):
             return False
     
     def __str__(self):
-        return f"{self.text}"
+        return self.title + " "+ self.publisher 
