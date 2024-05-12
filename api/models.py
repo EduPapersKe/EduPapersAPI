@@ -74,7 +74,7 @@ class Comment(models.Model):
         slowing down the server.its not nessesary but can be called **Comment.can_comment()**if needed to limit comments per user.
         """
         comments = Comment.objects.filter(resource=resource,author=request.user)
-        if len(comments )< 1 :
+        if len(comments )< 10 :
             return True
-        elif len(comments)>1:
+        elif len(comments)>10:
             return False
