@@ -77,7 +77,7 @@ class Developer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='developers_created')
     
-    def save(self, *args, **kwargs):#ensures the uuid is populated before the model is saved
+    def save(self, *args, **kwargs):
         if not self.id:
             self.id = uuid.uuid4()
         self.email = self.email.lower()
@@ -93,13 +93,17 @@ class APIKey(models.Model):
     """
     owner = models.ForeignKey(Developer, on_delete=models.CASCADE, null=False, blank=False)
     api_key = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    client_id = models.UUIDField(default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
     
-    def save(self, *args, **kwargs):#ensures the uuid is populated before the model is saved
+    def save(self, *args, **kwargs):
         if not self.api_key:
-            token=Token.objects.create(user=self.owner)
-            self.api_key=token.key
+            self.api_key = uuid.uuid4()
+        if not self.client_id:
+            self.client_id = uuid.uuid4()
         super().save(*args, **kwargs)
         
+        
     def __str__(self):
-        return f"{self.owner.email} ,,,,,,,,,,,,Devkey = {self.api_key}"
+        return f"{self.owner.email}, key = {self.api_key}"
