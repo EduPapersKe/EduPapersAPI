@@ -9,13 +9,6 @@ __pycache__/
 #local action runners
 actions-runner/
 
-#app migrations
-api/migrations/
-users/migrations/
-
-api/migrations/__init__.py
-users/migrations/__init__.py
-
 #pycache files
 app/__pycache__/
 users/__pycache__/

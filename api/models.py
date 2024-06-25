@@ -37,33 +37,23 @@ class Resource(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100, null=True, blank=False)
     description = models.TextField(null=True, blank=False)
-    publisher = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    date_created = models.DateTimeField(auto_now_add=True)
+    publisher = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     file = models.FileField(upload_to=resource_path, null=True, blank=False)
     file_size = models.IntegerField(null=True)
-    """
-    Here comes the tags related to a resource. A resource will have multiple tags.
-    A tags will  be in multiple resources as well.
-    """
-    # tags = models.ManyToManyField('Tag')
-    """
-    In this field, we will only allow these file formats: PDF, DOCX, xlsx, CSV, ODS, ZIP,TXT,
-    EPUB, MOBI, AZW(E-books)
-    The tags related to a resource. A resource can have multiple tags or none.
-    """
     tags = models.ManyToManyField(Tag, blank=True)
     file_format = models.CharField(max_length=7, null=True) # PDF, DOCX, xlsx, CSV, ODS, ZIP, TXT, EPUB, MOBI, AZW only
     
     def __str__(self):
-        return f'{self.title} by: {self.publisher} ' 
+        return f'{self.title} by: {self.publisher}' 
     
     
 class Comment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=False)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
     text = models.CharField(max_length=100, null=True, blank=False)
-    date_created = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     @staticmethod
     def can_comment(request,resource):
